@@ -1,0 +1,17 @@
+# artifacts
+.DS_Store
+
+# node
+/node_modules
+.env
+
+# vim
+*~
+*.swp
+*.rbc
+
+# intellij
+.idea/
+
+# log files
+*.log

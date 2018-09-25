@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>{{ name }}</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/reset-css/reset.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito:200,700">
+  {{{ CSS }}}
+  <link rel="stylesheet" type="text/css" href="cdn/css/app.css"/>
+</head>
+<body>
+<main>
+  {{{ content }}}
+</main>
+<!-- all dependencies are loaded separately and from a CDN to allow for cachability on the edge -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill/dist/polyfill.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch/dist/fetch.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/history/umd/history.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/universal-router/universal-router.min.js"></script>
+<!-- app code should be small unless delivered via CDN -->
+{{{ JS }}}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ GA_ID }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ GA_ID }}');
+</script>
+</body>
+</html>

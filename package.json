@@ -1,0 +1,41 @@
+{
+  "name": "vanilla",
+  "version": "0.1.0",
+  "description": "vanilla js compiled libraries for opinionated SSR, CLR web applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustinBeaudry/vanilla.git"
+  },
+  "keywords": [
+    "vanillajs",
+    "SSR",
+    "CLR",
+    "server-side",
+    "rendering",
+    "client-side",
+    "rendering"
+  ],
+  "author": "Justin Beaudry <beaudry.justin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JustinBeaudry/vanilla/issues"
+  },
+  "homepage": "https://github.com/JustinBeaudry/vanilla#readme",
+  "dependencies": {
+    "@availjs/avail": "^2.3.1",
+    "bunyan": "^1.8.12",
+    "dotenv": "^6.0.0",
+    "koa": "^2.5.3",
+    "koa-bunyan-logger": "^2.0.0",
+    "koa-compress": "^3.0.0",
+    "koa-ctx-cache-control": "^1.0.1",
+    "koa-etag": "^3.0.0",
+    "koa-router": "^7.4.0",
+    "koa-send": "^5.0.0",
+    "universal-router": "^6.0.0"
+  }
+}
