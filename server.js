@@ -10,9 +10,7 @@ const compress = require('koa-compress');
 const etag = require('koa-etag');
 const koaBunyan = require('koa-bunyan-logger');
 const send = require('koa-send');
-const fs = require('fs');
 const bunyan = require('bunyan');
-const {promisify} = require('util');
 
 const stream = {
   type: 'rotating-file',
@@ -36,8 +34,6 @@ const BASE_DIR = path.join(__dirname, process.env.V_APP_DIST);
 const TEMPLATES_DIR = path.join(BASE_DIR, process.env.V_APP_TEMPLATES);
 const router = new Router();
 const app = new Koa();
-
-let cache = {};
 
 require('koa-ctx-cache-control')(app);
 
@@ -63,26 +59,6 @@ router
 
 app.use(router.routes());
 
-getTemplates()
-  .then(() => {
-    app.listen(Number(process.env.V_APP_SERVER_PORT));
-    logger.info('App Server Started');
-  })
-  .catch(err => {
-    logger.error({
-      err
-    });
-  });
+app.listen(Number(process.env.V_APP_SERVER_PORT));
+logger.info('App Server Started');
 
-async function getTemplates() {
-  logger.trace('getting templates');
-  let dir = await promisify(fs.readdir)(BASE_DIR);
-  for (let file of dir) {
-    let template = await promisify(fs.readFile)(path.join(BASE_DIR, file));
-    cache[file] = template.toString();
-    logger.trace({
-      file
-    }, 'caching template');
-  }
-  logger.trace('caching complete');
-}
